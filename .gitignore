@@ -1,0 +1,7 @@
+Debug/
+Release/
+.vs/
+*.atsuo
+*.componentinfo.xml
+.DS_Store
+__MACOSX/
