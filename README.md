@@ -2,7 +2,7 @@
 
 A Simon-style memory game for the ATmega328P (Arduino Uno), written in bare-metal C with no Arduino libraries. The board plays a growing sequence of LEDs and tones, and you repeat it on four buttons. Your score and an all-time high score show on a 128x64 I2C OLED; the high score is kept in EEPROM, so it survives power-off.
 
-notes: monkido is a combination of monkey + do, a reference to monkey, see monkey do
+notes: monkido is a combination of monkey + do, a reference to monkey see, monkey do
 
 ![Monkido on the breadboard](docs/images/hardware2.JPG)
 
