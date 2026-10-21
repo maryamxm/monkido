@@ -18,7 +18,7 @@ Combining DDRx and PORTx gives four possible pin states. The input with pull-up 
 | 1    | 0      | Output, driven low                  |
 | 1    | 1      | Output, driven high                 |
 
-> [!NOTE] An input pin with nothing connected and no pull-up floats. Reading it gives random values, and it can also increase current consumption. Always enable the pull-up or tie unused pins to a defined level.
+> An input pin with nothing connected and no pull-up floats. Reading it gives random values, and it can also increase current consumption. Always enable the pull-up or tie unused pins to a defined level.
 
 Bellow are fundamental ways of writing modifying the registers:
 
