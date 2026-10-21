@@ -2,11 +2,13 @@
 
 A Simon-style memory game for the ATmega328P (Arduino Uno), written in bare-metal C with no Arduino libraries. The board plays a growing sequence of LEDs and tones, and you repeat it on four buttons. Your score and an all-time high score show on a 128x64 I2C OLED; the high score is kept in EEPROM, so it survives power-off.
 
-![Monkido on the breadboard](docs/images/board.jpg)
+notes: monkido is a combination of monkey + do, a reference to monkey, see monkey do
+
+![Monkido on the breadboard](docs/images/hardware2.jpg)
 
 ## Features
 
-- Four LEDs and four buttons, each paired with its own tone on a passive buzzer
+- Four LEDs and four buttons matching colors with the LEDs, each paired with its own tone on a passive buzzer
 - 128x64 OLED (I2C) showing START, the live score, GAME OVER, and the high score
 - High score saved in EEPROM
 - 3-second timeout per button press
@@ -32,12 +34,12 @@ Wiring notes:
 - The buzzer must be **passive**. The firmware generates the square wave itself, so an active buzzer will not play the right tones.
 - Leave A0 unconnected. The firmware reads its floating voltage once to seed the random generator.
 
-![Schematic](docs/images/schematic.jpg)
+![Schematic](docs/images/arduino-connections.jpg)
 
 ## How to play
 
-1. Power on. The OLED shows **HI** and the stored high score.
-2. Press **START**. The screen shows `START`, then `SC 0`.
+1. Power on. The OLED shows **HI** (High Score) and the stored high score.
+2. Press the start button. The screen shows `START`, then `SC 0` (Score 0).
 3. The board plays the sequence: each step lights one LED and plays its tone.
 4. Repeat the sequence on the buttons. Each press lights its LED and plays its tone.
 5. Get it right and the score goes up by one and the sequence grows by one step.
@@ -47,12 +49,11 @@ Your score is the number of rounds you completed. A new record is written to EEP
 
 ## Build and flash
 
-Requirements: Atmel Studio 7 or Microchip Studio (Windows), and either an ISP programmer or the Uno's USB bootloader with `avrdude`.
+Requirements: Atmel Studio 7 or Microchip Studio (Windows), and the Uno's USB bootloader with `avrdude`.
 
 1. Open `monkido.atsln` in Atmel Studio.
 2. Pick the `Debug` (`-Og`) or `Release` (`-Os`) configuration and build (F7). The output is `monkido/<Configuration>/monkido.hex`.
 3. Flash it.
-   - With an ISP programmer (Atmel-ICE, USBasp and similar): Tools → Device Programming.
    - Over USB with the Uno bootloader:
      ```
      avrdude -c arduino -p m328p -P <COM_PORT> -b 115200 -U flash:w:monkido/Debug/monkido.hex:i
@@ -89,17 +90,19 @@ Footprint (Debug build): about 4.0 KB of 32 KB flash, and 1340 of 2048 bytes of 
 
 ## Known limitations
 
-- **Tones are wrong by about 11x.** `playTone()` counts loop iterations as if each took one CPU cycle, but each iteration takes about 11 cycles (checked in the Debug `.lss`). Tones play roughly 11x lower in pitch and 11x longer than the code intends. The fix is to generate the tone in hardware with Timer2 in CTC toggle mode.
-- **Blocking design.** Tones, delays and display updates all busy-wait, so nothing else can happen while they run, and buttons are read only while the game waits for input.
+- **Tones are wrong by about 11x.** `playTone()` counts loop iterations as if each took one CPU cycle, but each iteration takes about 11 cycles (checked in the Debug `.lss`). Tones play roughly 11x lower in pitch and 11x longer than the code intends. well.. I need to fix that some day - for now.. it works :)).
+- **Blocking design.** Tones, delays and display updates all busy-wait, so nothing else can happen while they run, and buttons are read only while the game waits for input. (Let me see how many people get annoyed, then I will fix it.)
 - **No I2C error handling.** The TWI driver never checks ACK/status codes. A missing or miswired OLED is not detected.
-- **Display controller.** The code is named for the SSD1306, but it writes with a column offset of 2, which matches the SH1106 used on 1.3" modules. On a true SSD1306 (0.96") the image is shifted by 2 pixels.
+- **Display controller.** The code is named for the SSD1306, but it writes with a column offset of 2, which matches the SH1106 used on 1.3" modules. (it is an SH1106, the code functions and it is just a naming confusion)
 - **Weak random seed.** A single reading of a floating pin can repeat between power-ups.
-- **Length cap.** The sequence stops growing at 49 steps; after that the last step is replaced each round. Scores display up to 99.
-- **Flashing the `.eep` file resets the high score** to the erased value (shown as 0).
+- **Length cap.** The sequence stops growing at 49 steps; after that the last step is replaced each round. Scores display up to 99. (I will fix it later, nobody has reached a score of 20 yet, so let me not worry about this.)
 
 ## License
 
-See [LICENSE](LICENSE).
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+## Notes
+A version 2 of this will come. It will resolve all the limitations mentioned above, as well as some new features. The gave will be moved from a breadboard to a PCD board. 
 
 ## Author
 
