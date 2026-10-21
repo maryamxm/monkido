@@ -17,14 +17,19 @@ notes: monkido is a combination of monkey + do, a reference to monkey, see monke
 
 ## Hardware
 
+# Hardware
+
 | Part | Qty | Pin (Uno) | AVR pin |
 |---|---|---|---|
 | Arduino Uno (ATmega328P, 16 MHz) | 1 | – | – |
-| Push button, game (Button0–Button3) | 4 | D2, D3, D4, D5 | PD2–PD5 |
+| LED: red, white, blue, yellow (LED0–LED3) | 4 | D9, D10, D11, D12 | PB1–PB4 |
+| Resistor 220 Ω (one per LED) | 4 | in series with each LED | – |
+| Push button, game (Button0–Button3), ideally with red, white, blue and yellow caps | 4 | D2, D3, D4, D5 | PD2–PD5 |
 | Push button, start | 1 | D6 | PD6 |
-| LED (LED0–LED3) + current-limiting resistor | 4 | D9, D10, D11, D12 | PB1–PB4 |
 | Passive buzzer | 1 | D8 | PB0 |
-| OLED 128x64, I2C, address 0x3C | 1 | A4 (SDA), A5 (SCL) | PC4, PC5 |
+| SH1106 OLED, 1.3", 128x64, I2C, address 0x3C | 1 | A4 (SDA), A5 (SCL) | PC4, PC5 |
+| Breadboard | 1 | – | – |
+| Jumper wires | ~20 | – | – |
 | Nothing connected (floating input, used as random seed) | – | A0 | ADC0 |
 
 Wiring notes:
@@ -105,6 +110,7 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 A version 2 of this will come. It will resolve all the limitations mentioned above, as well as some new features. The gave will be moved from a breadboard to a PCD board. 
 
 This is a link to a video of someone playing. 
+![demo](docs/videos/DSCF2151.mov)
 
 ## Author
 
