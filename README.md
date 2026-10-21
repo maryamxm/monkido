@@ -39,7 +39,9 @@ Wiring notes:
 - The buzzer must be **passive**. The firmware generates the square wave itself, so an active buzzer will not play the right tones.
 - Leave A0 unconnected. The firmware reads its floating voltage once to seed the random generator.
 
-![Schematic](docs/images/arduino-connections.png)
+![Schematic](docs/hardware/arduino-connections.png)
+
+You can find the schematic here [Schematic](docs/images/schematic.jpg)
 
 ## How to play
 
@@ -109,8 +111,8 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 ## Notes
 A version 2 of this will come. It will resolve all the limitations mentioned above, as well as some new features. The gave will be moved from a breadboard to a PCD board. 
 
-This is a link to a video of someone playing. 
-[Watch the demo video](https://drive.google.com/file/d/1nadUwm8wU0s0cfuSINVw-0tVQTaJuW5n/view?usp=sharing)
+This is a link to a video of someone playing
+[Watch the demo video](https://drive.google.com/file/d/1nadUwm8wU0s0cfuSINVw-0tVQTaJuW5n/view?usp=sharing).
 
 ## Author
 
