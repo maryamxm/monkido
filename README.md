@@ -110,7 +110,7 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 A version 2 of this will come. It will resolve all the limitations mentioned above, as well as some new features. The gave will be moved from a breadboard to a PCD board. 
 
 This is a link to a video of someone playing. 
-![demo](docs/videos/DSCF2151.mov)
+[Watch the demo video](https://drive.google.com/file/d/1nadUwm8wU0s0cfuSINVw-0tVQTaJuW5n/view?usp=sharing)
 
 ## Author
 
