@@ -4,7 +4,7 @@ A Simon-style memory game for the ATmega328P (Arduino Uno), written in bare-meta
 
 notes: monkido is a combination of monkey + do, a reference to monkey, see monkey do
 
-![Monkido on the breadboard](docs/images/hardware2.jpg)
+![Monkido on the breadboard](docs/images/hardware2.JPG)
 
 ## Features
 
@@ -34,7 +34,7 @@ Wiring notes:
 - The buzzer must be **passive**. The firmware generates the square wave itself, so an active buzzer will not play the right tones.
 - Leave A0 unconnected. The firmware reads its floating voltage once to seed the random generator.
 
-![Schematic](docs/images/arduino-connections.jpg)
+![Schematic](docs/images/arduino-connections.png)
 
 ## How to play
 
@@ -103,6 +103,8 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 
 ## Notes
 A version 2 of this will come. It will resolve all the limitations mentioned above, as well as some new features. The gave will be moved from a breadboard to a PCD board. 
+
+This is a link to a video of someone playing. 
 
 ## Author
 
