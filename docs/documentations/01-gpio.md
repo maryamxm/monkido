@@ -1,4 +1,4 @@
-# 01 · GPIO: buttons and LEDs
+# 01 · GPIO (General Purpose Input Output)
 
 On an AVR, each I/O port is controlled by exactly three registers. Each port n the ATmega328p has three 8-bit registers, where bit n controls pin n of that port. 
 
