@@ -39,9 +39,9 @@ Wiring notes:
 - The buzzer must be **passive**. The firmware generates the square wave itself, so an active buzzer will not play the right tones.
 - Leave A0 unconnected. The firmware reads its floating voltage once to seed the random generator.
 
-![Schematic](docs/hardware/arduino-connections.png)
+![Arduino connections](docs/hardware/arduino-connections.png)
 
-![Schematic](docs/hardware/schematic.pdf)
+You can view the schematic over here: [Schematic](docs/hardware/schematic.pdf)
 
 ## How to play
 
