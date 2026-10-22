@@ -81,10 +81,10 @@ Footprint (Debug build): about 4.0 KB of 32 KB flash, and 1340 of 2048 bytes of 
 │   ├── main.c             all firmware: drivers, display, game logic
 │   ├── pitches.h          note name → frequency (Hz) table
 │   └── monkido.cproj      Atmel Studio project
-└── docs
-    ├── /images/           photos
-    ├── /documentations/   some notes on the registers
-    └── /hardware/         schematics
+└── docs/
+    ├── images/            photos
+    ├── documentations/    some notes on the registers
+    └── hardware/          schematics
 
     
 ```
