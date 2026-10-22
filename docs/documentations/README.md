@@ -1,6 +1,6 @@
 # Monkido learning notes
 
-Short refreshers on the embedded concepts Monkido uses. Each one is tied to the functions in [`main.c`](../monkido/main.c) that use the concept. 
+Short refreshers on the embedded concepts Monkido uses. Each one is tied to the functions in the code that use the concept. 
 
 | # | Topic | Covers |
 |---|---|---|
