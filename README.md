@@ -1,23 +1,21 @@
 # Monkido
 
-A Simon-style memory game for the ATmega328P (Arduino Uno), written in bare-metal C with no Arduino libraries. The board plays a growing sequence of LEDs and tones, and you repeat it on four buttons. Your score and an all-time high score show on a 128x64 I2C OLED; the high score is kept in EEPROM, so it survives power-off.
+A Simon-style memory game for the ATmega328P (Arduino Uno), written in bare-metal C with no Arduino libraries. The board plays a growing sequence of LEDs and tones, and you repeat it on four buttons. Your score and an all-time high score show on an OLED display; the high score is kept in EEPROM, so it survives power-off.
 
-notes: monkido is a combination of monkey + do, a reference to monkey see, monkey do
+Notes: monkido is a combination of monkey + do, a reference to monkey see, monkey do
 
 ![Monkido on the breadboard](docs/images/hardware2.JPG)
 
 ## Features
 
 - Four LEDs and four buttons matching colors with the LEDs, each paired with its own tone on a passive buzzer
-- 128x64 OLED (I2C) showing START, the live score, GAME OVER, and the high score
+- OLED (I2C) showing START, the live score, GAME OVER, and the high score
 - High score saved in EEPROM
 - 3-second timeout per button press
 - Debug log over UART at 9600 baud (8N1)
 - Register-level drivers for GPIO, Timer1, TWI (I2C), ADC, USART and EEPROM, plus a hand-written 5x7 font and framebuffer for the display
 
 ## Hardware
-
-# Hardware
 
 | Part | Qty | Pin (Uno) | AVR pin |
 |---|---|---|---|
@@ -45,7 +43,7 @@ You can view the schematic over here: [Schematic](docs/hardware/schematic.pdf)
 
 ## How to play
 
-1. Power on. The OLED shows **HI** (High Score) and the stored high score.
+1. Power on. The OLED shows **HI** (Highest) and the stored high score.
 2. Press the start button. The screen shows `START`, then `SC 0` (Score 0).
 3. The board plays the sequence: each step lights one LED and plays its tone.
 4. Repeat the sequence on the buttons. Each press lights its LED and plays its tone.
@@ -83,7 +81,12 @@ Footprint (Debug build): about 4.0 KB of 32 KB flash, and 1340 of 2048 bytes of 
 │   ├── main.c             all firmware: drivers, display, game logic
 │   ├── pitches.h          note name → frequency (Hz) table
 │   └── monkido.cproj      Atmel Studio project
-└── docs/images/           photos and schematic
+└── docs
+    ├── /images/           photos
+    ├── /documentations/   some notes on the registers
+    └── /hardware/         schematics
+
+    
 ```
 
 ## How it works
@@ -95,7 +98,7 @@ Footprint (Debug build): about 4.0 KB of 32 KB flash, and 1340 of 2048 bytes of 
 - **Persistence.** The high score is one byte in EEPROM. `0xFF` (erased) is treated as 0, and writes use `eeprom_update_byte()` to avoid needless wear.
 - **Control flow.** Everything runs in a single loop in `main()`: wait for START, extend the sequence, play it, read the input, then update the score or end the game.
 
-## Known limitations
+## Things to take care of (fix)
 
 - **Tones are wrong by about 11x.** `playTone()` counts loop iterations as if each took one CPU cycle, but each iteration takes about 11 cycles (checked in the Debug `.lss`). Tones play roughly 11x lower in pitch and 11x longer than the code intends. well.. I need to fix that some day - for now.. it works :)).
 - **Blocking design.** Tones, delays and display updates all busy-wait, so nothing else can happen while they run, and buttons are read only while the game waits for input. (Let me see how many people get annoyed, then I will fix it.)

@@ -15,7 +15,7 @@ Below is a list of all the registers in Timer1 and what they do.
 | TIFR1         | Timer interrupt flag register                                |
 | ICR1          | Input capture register                                       |
 
-The timer registers can be configures in three modes:
+The timer registers can be configured in three modes:
 * Normal mode: it increments with each clock.
 * Time delay: measures how long it takes for the timer to overflow or reach a specific value.
 * CTC (Clear Timer on Compare match) mode: it increments with the clock and counts until TCNT matches OCR. The timer is then cleared and the OCF flag is set.
