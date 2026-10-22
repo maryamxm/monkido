@@ -41,7 +41,7 @@ Wiring notes:
 
 ![Schematic](docs/hardware/arduino-connections.png)
 
-You can find the schematic here [Schematic](docs/hardware/schematic.pdf)
+! [Schematic](docs/hardware/schematic.pdf)
 
 ## How to play
 
