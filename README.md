@@ -4,6 +4,8 @@ A Simon-style memory game for the ATmega328P (Arduino Uno), written in bare-meta
 
 Notes: monkido is a combination of monkey + do, a reference to monkey see, monkey do
 
+[Watch the demo video](https://drive.google.com/file/d/1nadUwm8wU0s0cfuSINVw-0tVQTaJuW5n/view?usp=sharing)
+
 ![Monkido on the breadboard](docs/images/hardware2.JPG)
 
 ## Features
@@ -111,8 +113,7 @@ Footprint (Debug build): about 4.0 KB of 32 KB flash, and 1340 of 2048 bytes of 
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
-## Notes
-A version 2 of this will come. It will resolve all the limitations mentioned above, as well as some new features. The game will be moved from a breadboard to a PCD board. 
+## Note
+The first version of this has been made in November 2025. 
 
-This is a link to a video of someone playing
-[Watch the demo video](https://drive.google.com/file/d/1nadUwm8wU0s0cfuSINVw-0tVQTaJuW5n/view?usp=sharing).
+A version 2 of this will come. It will resolve all the limitations mentioned above, as well as some new features. The game will be moved from a breadboard to a PCB board. 
